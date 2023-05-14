@@ -57,12 +57,24 @@ public class AccountService {
         if (sum <= 0) {
             throw new DepositNegativeSumException("Cannot deposit negative sums");
         }
+        sum = apply_promo(sum);
 
         Account account = accountRepository.findAccountByCbu(cbu);
         account.setBalance(account.getBalance() + sum);
         accountRepository.save(account);
 
         return account;
+    }
+
+    private Double apply_promo(Double sum){
+        if (sum > 5000){
+            return sum + 500;
+        } else if (sum >= 2000) {
+            return sum + sum * 0.1;
+        }
+        else{
+            return sum;
+        }
     }
 
 }

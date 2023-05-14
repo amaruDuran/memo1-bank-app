@@ -6,6 +6,7 @@ import com.aninfo.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -28,9 +29,6 @@ public class TransactionService {
 //        return transactionRepository.findAll();
 //    }
 
-//    public Transaction findByCbuAccount(Long cbuAccount) {
-//        return transactionRepository.findTransactionsByCbuAccount(cbuAccount);
-//    }
 
     public Optional<Transaction> findById(Long id) {
         return transactionRepository.findTransactionById(id);
@@ -38,5 +36,9 @@ public class TransactionService {
 
     public void deleteById(Long id) {
         transactionRepository.deleteById(id);
+    }
+
+    public Collection<Transaction> getTransactionsByCbuAccount(Long cbuAccount) {
+        return transactionRepository.findTransactionsByCbuAccount(cbuAccount);
     }
 }
