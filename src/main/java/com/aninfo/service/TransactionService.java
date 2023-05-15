@@ -25,11 +25,6 @@ public class TransactionService {
         return transactionRepository.save(deposit);
     }
 
-//    public Collection<Transaction> getTransactions() {
-//        return transactionRepository.findAll();
-//    }
-
-
     public Optional<Transaction> findById(Long id) {
         return transactionRepository.findTransactionById(id);
     }
