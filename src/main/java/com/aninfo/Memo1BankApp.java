@@ -95,11 +95,6 @@ public class Memo1BankApp {
 		return transactionService.deposit(cbu, amount);
 	}
 
-//	@GetMapping("/transactions")
-//	public Collection<Transaction> getTransactions() {
-//		return transactionService.getTransactions();
-//	}
-
 	@GetMapping("/transactions/{id}")
 	public ResponseEntity<Transaction> getTransaction(@PathVariable Long id) {
 		Optional<Transaction> transactionOptional = transactionService.findById(id);
